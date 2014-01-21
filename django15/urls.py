@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('note.views',
         url(r'^$', 'index'),
+        url(r'add/', 'add'),
 )
 
 urlpatterns += patterns('',

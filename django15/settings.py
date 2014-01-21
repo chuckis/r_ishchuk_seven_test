@@ -5,7 +5,7 @@ import os
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 SITE_ROOT = os.path.dirname(PROJECT_ROOT)
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -24,7 +24,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'note',
     'storages',
     'boto',
+    'django_forms_bootstrap',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -150,7 +151,7 @@ LOGGING = {
 }
 
 # # Allow all host hosts/domain names for this site
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url

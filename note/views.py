@@ -1,8 +1,22 @@
-from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
 from note.models import Note
+from note.forms import NoteForm
+from django.template import RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 
 # Create your views here.
 
 def index(request):
     notes = Note.objects.all()
-    return render_to_response("index.html", {'notes' : notes})
+    return render_to_response("index.html", {'notes' : notes}, context_instance=RequestContext(request))
+
+def add(request):
+    if request.method == 'POST':
+		form = NoteForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+    else:
+        form = NoteForm()
+	return render_to_response('add.html', {'form' : form}, RequestContext(request))
