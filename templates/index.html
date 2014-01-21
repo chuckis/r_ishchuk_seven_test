@@ -1,21 +1,26 @@
-{% extends "base.html" %}
-
-{% block sidebar %}
-<li><a href="/">Home</a></li>
-<li><a href="/add">Add</a></li>
+{% extends 'base.html' %}
+{% block scripts %}
 {% endblock %}
-
+<!--==============================content================================-->
+ <div class="container">
+     
 {% block content %}
 
-{% if whatever.count > 0 %}
-{% for w in whatever %}
-<div>
-<h2>{{ w.title }}</a></h2>
-<p>{{ w.body }}</p>
+<div class="">
+	<h1> NOTES </h1>
+	<ul class="list view">
+		{% for note in notes %}
+			<li> <h2>{{ note.title }}</h2> <p>{{ note.body }}</p> <span>{{ note.created_at }}</span> </li>
+		
+		{% endfor %}
+	</ul>
 </div>
-{% endfor %}
-{% else %}
-<p>Nothing.</p>
-{% endif %}
+ 
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 
-{% endblock %}
+-->
+
+ {% endblock %}   
+</div>
+
