@@ -11,12 +11,13 @@ def index(request):
     notes = Note.objects.all()
     return render_to_response("index.html", {'notes' : notes}, context_instance=RequestContext(request))
 
+#add request.FILES later
 def add(request):
     if request.method == 'POST':
-		form = NoteForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('/')
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
     else:
         form = NoteForm()
-	return render_to_response('add.html', {'form' : form}, RequestContext(request))
+        return render_to_response('add.html', {'form' : form}, RequestContext(request))
