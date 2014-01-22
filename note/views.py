@@ -17,7 +17,7 @@ def add(request):
         form = NoteForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/')
+            return redirect('/')
     else:
         form = NoteForm()
-        return render_to_response('add.html', {'form' : form}, RequestContext(request))
+    return render_to_response('add.html', {'form' : form}, RequestContext(request))

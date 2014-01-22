@@ -15,5 +15,3 @@ class NoteForm(forms.ModelForm):
         model = Note
         fields = ('title', 'body')
 
-#error_messages={'min_length': _('Ensure message has at least %(limit_value)d characters (it has %(show_value)d).')
-#})
