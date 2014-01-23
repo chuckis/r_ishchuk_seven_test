@@ -6,10 +6,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 
 # Create your views here.
+def count_notes(request):
+    amount = Note.objects.all().count()
+    return {'amount' : amount}
 
 def index(request):
     notes = Note.objects.all()
-    return render_to_response("index.html", {'notes' : notes}, context_instance=RequestContext(request))
+    return render_to_response("index.html", {'notes' : notes}, 
+    context_instance=RequestContext(request, processors=[count_notes]))
 
 #add request.FILES later
 def add(request):
@@ -20,4 +24,5 @@ def add(request):
             return redirect('/')
     else:
         form = NoteForm()
-    return render_to_response('add.html', {'form' : form}, RequestContext(request))
+    return render_to_response('add.html', {'form' : form}, RequestContext(request, 
+    processors=[count_notes]))

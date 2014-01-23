@@ -8,6 +8,7 @@
 
 <div class="">
 	<h1> NOTES </h1>
+	<h2>now here is {{ amount }} notes, add some thoughts!</h2>
 	<ul class="list view">
 		{% for note in notes %}
 			<li> <h2>{{ note.title }}</h2> <p>{{ note.body }}</p> <span>{{ note.created_at }}</span> </li>

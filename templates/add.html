@@ -6,6 +6,8 @@
 
 {% block content %}
 
+<h2> {{ amount }} notes now </h2>
+
 <form action="add/" method="post" enctype="multipart/form-data">{% csrf_token %}
 <legend>add note</legend>
     {{ form|as_bootstrap }}
