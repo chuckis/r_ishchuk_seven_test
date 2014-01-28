@@ -8,19 +8,25 @@
 
 <div class="">
 	<h1> NOTES </h1>
-	<h2>now here is {{ amount }} notes, add some thoughts!</h2>
 	<ul class="list view">
 		{% for note in notes %}
 			<li> <h2>{{ note.title }}</h2> <p>{{ note.body }}</p> <span>{{ note.created_at }}</span> </li>
 		
 		{% endfor %}
 	</ul>
-</div>
- 
 <!--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-
+	 pagination here
 -->
+	{% if paginator.num_pages > 1 %}
+        {% if page_obj.has_previous %}
+            <a href="{% if page_obj.previous_page_number == 1 %}/{% else %}/page{{ page_obj.previous_page_number }}/{% endif %}">&larr;</a>
+        {% endif %}
+        Page {{ page_obj.number }} of {{ paginator.num_pages }}
+        {% if page_obj.has_next %}
+            <a href="/page{{ page_obj.next_page_number }}/">&rarr;</a>
+        {% endif %}
+    {% endif %}
+</div>
 
  {% endblock %}   
 </div>

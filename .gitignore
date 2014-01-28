@@ -1,4 +1,6 @@
 .Python
+myenv
+static
 env
 bin
 lib
