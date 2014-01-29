@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block sidebar %}
+<li><a href="/"class="btn-primary">Вернуться на главную</a></li>
+{% endblock %}
+
+{% block content %}
+
+<form action="add/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<legend>add note</legend>
+    {{ form|as_bootstrap }}
+    <div class="form-actions">
+      <a href="#back" class="btn">Go back</a>
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
+
+{% endblock %}

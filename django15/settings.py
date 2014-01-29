@@ -115,7 +115,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'note',
+    'django15.apps.note',
     'storages',
     'boto',
     'django_forms_bootstrap',
