@@ -15,3 +15,15 @@ DATABASES = {
      "PORT": "5432",
  }
 }
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django15.apps.note',
+    'django_forms_bootstrap',
+)
