@@ -10,6 +10,9 @@ from django.views.generic import ListView
 # Create your views here.
 
 class ListNoteView(ListView):
+    """
+    return 5 items per page view of Notes
+    """
     model = Note
     context_object_name = 'notes'
     template_name = "index.html"
@@ -17,6 +20,9 @@ class ListNoteView(ListView):
 
 #add request.FILES later
 def add(request):
+    """
+    return view for add note with min length validation
+    """
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():

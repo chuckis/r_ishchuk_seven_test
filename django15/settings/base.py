@@ -1,6 +1,6 @@
 # Django settings for django15 project.
-
 import os
+import dj_database_url
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 SITE_ROOT = os.path.dirname(PROJECT_ROOT)
@@ -153,9 +153,6 @@ LOGGING = {
 # # Allow all host hosts/domain names for this site
 #ALLOWED_HOSTS = ['*']
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-
 DATABASES = { 'default' : dj_database_url.config()}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -167,11 +164,3 @@ try:
 except Exception as e:
         pass
 
-#Storage on S3 settings are stored as os.environs to keep settings.py clean 
-if not DEBUG:
- AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
- AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
- AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
- STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
- S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
- STATIC_URL = S3_URL
